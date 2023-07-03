@@ -5,21 +5,24 @@ import nasaImage from './nasa.jpg';
 import NasaComponent from './NasaComponent';
 import ClickCount from "./ClickCount";
 import Component1 from "./Component1";
+import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <NasaComponent/>
-        </p>
-        <p>
-          <ClickCount/>
-        </p>
-        <p>
-          Exercise 3
-          <Component1/>
-        </p>
+          <Router>
+            <Switch>
+              <Route path = '/nasa'>
+                <NasaComponent/>
+                <ClickCount/>
+              </Route>
+
+              <Route path = '/counter'>
+                <Component1/>
+              </Route>
+            </Switch>
+          </Router>
         <a
           className="App-link"
           href="https://reactjs.org"
